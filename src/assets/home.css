@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f4f6fb;
+}
+
+.home-container{
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:40px 30px;
+
+  background:#f4f6fb;
+}
+
+.home-card{
+  width:100%;
+  max-width:720px;
+
+  background:#ffffff;
+
+  border-radius:24px;
+
+  padding:35px 40px;
+
+  text-align:center;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.08);
+}
+
+.home-logo{
+  width:90px;
+  height:90px;
+
+  object-fit:contain;
+
+  display:block;
+  margin:0 auto 16px;
+}
+
+.home-title{
+  font-size:28px;
+  font-weight:700;
+
+  color:#1e293b;
+}
+
+.home-subtitle{
+  margin-top:10px;
+
+  font-size:16px;
+
+  color:#64748b;
+
+  line-height:1.6;
+}
+
+.section-title{
+  margin-top:28px;
+  margin-bottom:20px;
+
+  font-size:22px;
+  font-weight:700;
+
+  color:#111827;
+}
+
+.menu-grid{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:18px;
+}
+
+.menu-card{
+  background:#ffffff;
+
+  border:1px solid #dbeafe;
+
+  border-radius:18px;
+
+  padding:24px;
+
+  min-height:140px;
+
+  cursor:pointer;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  gap:12px;
+
+  font-size:16px;
+  font-weight:600;
+
+  color:#1f2937;
+
+  transition:
+    transform .25s,
+    border-color .25s,
+    box-shadow .25s;
+}
+
+.menu-card:hover{
+  transform:translateY(-4px);
+
+  border-color:#2563eb;
+
+  box-shadow:
+    0 8px 20px rgba(37,99,235,.12);
+}
+
+.menu-icon{
+  font-size:34px;
+
+  color:#2563eb;
+}
+
+.credit{
+  margin-top:28px;
+
+  text-align:center;
+
+  font-size:13px;
+
+  color:#6b7280;
+
+  line-height:1.7;
+}
+
+.credit a{
+  color:#2563eb;
+
+  text-decoration:none;
+
+  font-weight:600;
+
+  transition:.2s;
+}
+
+.credit a:hover{
+  color:#1d4ed8;
+}
+
+@media (max-width:768px){
+
+  .home-container{
+    padding:20px;
+  }
+
+  .home-card{
+    padding:28px;
+  }
+
+  .home-title{
+    font-size:24px;
+  }
+
+  .section-title{
+    font-size:20px;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+  .menu-card{
+    min-height:130px;
+    padding:22px;
+  }
+
+  .menu-icon{
+    font-size:32px;
+  }
+}
