@@ -8,17 +8,23 @@ const packages = [
   {
     id: 'paket-soal-1',
     title: 'Paket Soal 1',
-    description: 'Listening + Structure + Reading'
+    description: 'Listening + Structure + Reading',
+    locked: false
   },
   {
     id: 'paket-soal-2',
     title: 'Paket Soal 2',
-    description: 'Listening + Structure + Reading'
+    description: 'Listening + Structure + Reading',
+    locked: true
   }
 ]
 
-const openPackage = packageId => {
-  router.push(`/listening/${packageId}?fullTest=true`)
+const openPackage = (pkg) => {
+  if (pkg.locked) {
+    return
+  }
+
+  router.push(`/listening/${pkg.id}?fullTest=true`)
 }
 </script>
 
@@ -54,19 +60,23 @@ const openPackage = packageId => {
           v-for="pkg in packages"
           :key="pkg.id"
           class="package-card"
-          @click="openPackage(pkg.id)"
+          :class="{ locked: pkg.locked }"
+          @click="openPackage(pkg)"
         >
 
           <div class="package-icon">
-            📝
+            {{ pkg.locked ? '🔒' : '📝' }}
           </div>
 
           <h3>{{ pkg.title }}</h3>
 
           <p>{{ pkg.description }}</p>
 
-          <button class="start-btn">
-            Mulai Full Test
+          <button
+            class="start-btn"
+            :disabled="pkg.locked"
+          >
+            {{ pkg.locked ? 'Locked' : 'Mulai Full Test' }}
           </button>
 
         </div>

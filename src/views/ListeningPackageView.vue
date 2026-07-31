@@ -8,17 +8,21 @@ const packages = [
   {
     id: 'paket-soal-1',
     title: 'Paket Soal 1',
-    description: '40 Questions'
+    description: '40 Questions',
+    locked: false
   },
   {
     id: 'paket-soal-2',
     title: 'Paket Soal 2',
-    description: '40 Questions'
+    description: '40 Questions',
+    locked: true
   }
 ]
 
-const openPackage = packageId => {
-  router.push(`/listening/${packageId}`)
+const openPackage = (pkg) => {
+  if (pkg.locked) return
+
+  router.push(`/listening/${pkg.id}`)
 }
 </script>
 
@@ -65,7 +69,8 @@ const openPackage = packageId => {
           v-for="pkg in packages"
           :key="pkg.id"
           class="package-card"
-          @click="openPackage(pkg.id)"
+          :class="{ locked: pkg.locked }"
+          @click="openPackage(pkg)"
         >
 
           <div class="package-icon">
@@ -80,8 +85,11 @@ const openPackage = packageId => {
             {{ pkg.description }}
           </p>
 
-          <button class="start-btn">
-            Mulai Listening Test
+          <button
+            class="start-btn"
+            :disabled="pkg.locked"
+          >
+            {{ pkg.locked ? 'Locked' : 'Mulai Listening Test' }}
           </button>
 
         </div>

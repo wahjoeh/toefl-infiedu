@@ -244,3 +244,25 @@ body{
     font-size:38px;
   }
 }
+
+.package-card.locked {
+  opacity: .75;
+  cursor: not-allowed;
+}
+
+.start-btn:disabled {
+  background: #bdbdbd;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.package-card.locked {
+  opacity: .75;
+  cursor: not-allowed;
+}
+
+.start-btn:disabled {
+  background: #bdbdbd;
+  color: #666;
+  cursor: not-allowed;
+}
