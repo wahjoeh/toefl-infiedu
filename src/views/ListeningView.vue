@@ -74,7 +74,7 @@ const answers = ref({})
 
 const currentQuestion = ref(0)
 
-const timeLeft = ref(2100)
+const timeLeft = ref(2220)
 let timer = null
 
 const audioPlayer = ref(null)
